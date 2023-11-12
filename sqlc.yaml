@@ -1,0 +1,13 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "./db/query/"
+    schema: "./db/schema/"
+    database:
+      uri: postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable
+      managed: false 
+    gen:
+      go:
+        package: "db"
+        out: "db/sqlc"
+        sql_package: "pgx/v5"
